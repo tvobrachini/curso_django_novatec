@@ -11,10 +11,14 @@ class Tarefa(Model):
     descricao = TextField(verbose_name='descrição')
     data_de_criacao = DateTimeField(auto_now_add=True,
                                     verbose_name='data de criação')
-    data_de_execucao = DateTimeField(verbose_name='date de execução')
+    data_de_execucao = DateTimeField(verbose_name='date de execução',
+                                     blank=True, null=True)
     finalizado = BooleanField(default=False, verbose_name='finalizado')
 
     class Meta:
         ordering = ['-data_de_criacao']
         verbose_name = 'tarefa'
         verbose_name_plural = 'tarefas'
+
+    def __str__(self):
+        return self.nome
