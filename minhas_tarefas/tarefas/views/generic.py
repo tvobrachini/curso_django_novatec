@@ -8,9 +8,10 @@ class TarefasView(ArchiveIndexView):
     date_field = 'data_de_criacao'
 
 
-class TarefaDetail(DetailView):
+class TarefasDetail(DetailView):
     model = Tarefa
 
 __all__ = [
-    'TarefasView'
+    'TarefasView',
+    'TarefasDetail'
 ]

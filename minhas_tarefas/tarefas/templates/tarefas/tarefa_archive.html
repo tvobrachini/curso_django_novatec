@@ -1,0 +1,13 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <ul>
+            {% for item in latest %}
+                <li>
+                    <a href="/tarefas/{{ item.pk }}/">{{ item.nome }} {{ item.finalizado }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
