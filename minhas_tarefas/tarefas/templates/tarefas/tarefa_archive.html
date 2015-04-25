@@ -1,13 +1,20 @@
-<html>
-    <head>
-    </head>
-    <body>
-        <ul>
-            {% for item in latest %}
-                <li>
-                    <a href="/tarefas/{{ item.pk }}/">{{ item.nome }} {{ item.finalizado }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<div class="page_header">
+    <h2>Minhas Tarefas</h2>
+</div>
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Data de Criação</th>
+        <th>Finalizado</th>
+    </tr>
+    {% for item in latest %}
+        <tr>
+            <td><a href="/tarefas/{{ item.pk }}">{{ item.nome }}</a></td>
+            <td>{{ item.data_de_criacao|date:"d/m/Y H:i" }}</td>
+            <td>{% if item.finalizado  %} Sim {% else %} Não {% endif %} </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
