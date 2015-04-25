@@ -4,5 +4,5 @@ from tarefas.views import Home
 
 urlpatterns = patterns(
     '',
-    url(r'^$', Home.as_view()),
+    url(r'^$', Home.as_view(), name='home'),
 )
