@@ -1,3 +1,5 @@
+from tarefas.models import Tarefa
+from django.forms import ModelForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.forms import Form
@@ -30,3 +32,9 @@ class FormNovoUsuario(Form):
         if senha1 != senha2:
             raise ValidationError('As Senhas devem ser iguais')
         return senha1
+
+
+class FormTarefa(ModelForm):
+    class Meta:
+        model = Tarefa
+        fields = ['nome', 'descricao', 'finalizado']
