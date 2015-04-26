@@ -8,12 +8,14 @@
         <th>Nome</th>
         <th>Data de Criação</th>
         <th>Finalizado</th>
+        <th>Usuário</th>
     </tr>
     {% for item in latest %}
         <tr>
             <td><a href="/tarefas/{{ item.pk }}">{{ item.nome }}</a></td>
             <td>{{ item.data_de_criacao|date:"d/m/Y H:i" }}</td>
             <td>{% if item.finalizado  %} Sim {% else %} Não {% endif %} </td>
+            <td>{{ item.usuario }} </td>
         </tr>
     {% endfor %}
 </table>
