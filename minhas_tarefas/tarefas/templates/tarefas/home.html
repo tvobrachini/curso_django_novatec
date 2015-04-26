@@ -1,9 +1,15 @@
 {% extends "base.html" %}
     {% block content %}
         <div class="page-header">
-            Olá {{ user.first_name }}</h2>
-        </div>      
+            Olá {{ user.first_name }}
+        </div>
+    {% if user.is_authenticated %}
         Você tem {{ counter }} {% if count > 1 %} tarefas abertas {% else %}
         tarefa aberta {% endif %}</br>
         <a href="/tarefas/">Minhas Tarefas</a>
+    {% else %}
+        <a href='admin/login/?next=/'>Login</a>
+        ||
+        <a href='criar_usuario'>Criar usuário</a>
+    {% endif %}
     {% endblock %}

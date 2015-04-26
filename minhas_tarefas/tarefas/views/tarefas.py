@@ -13,7 +13,7 @@ class Home(View):
 
     def get(self, request, *args, **kwargs):
         self.context['counter'] = Tarefa.objects.filter(
-            finalizado=False).count()
+            finalizado=False, usuario=request.user.id).count()
         return render_to_response(self.template_name, self.context,
                                   RequestContext(request))
 
