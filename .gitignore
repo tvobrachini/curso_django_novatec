@@ -59,4 +59,5 @@ target/
 # Vim .swp files
 *.swp
 
-#
+#Deploy files
+deploy/

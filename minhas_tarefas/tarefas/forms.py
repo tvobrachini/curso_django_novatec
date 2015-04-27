@@ -23,7 +23,9 @@ class FormNovoUsuario(Form):
         }
         if self.cleaned_data['nome']:
             params['first_name'] = self.cleaned_data['nome']
-        User.objects.create_user(**params)
+        usuario = User.objects.create_user(**params)
+        usuario.is_staff = True
+        usuario.save()
 
     def clean_repeticao_senha(self):
         senha1 = self.cleaned_data['senha']
